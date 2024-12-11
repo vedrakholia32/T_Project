@@ -4,8 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 // import { CiLogin } from "react-icons/ci";
 
-const Posts = ({ feedType }) => {
-  const isLoading = false
+const Posts = ({ feedType, username , userId}) => {
+  const isLoading = false;
 
   const getPostEndPoint = () => {
     // console.log(feedType)
@@ -14,6 +14,10 @@ const Posts = ({ feedType }) => {
         return "/api/posts/all";
       case "following":
         return "/api/posts/following";
+      case "posts":
+        return `/api/posts/user/${username}`;
+      case "likes":
+        return `/api/posts/likes/${userId}`;
       default:
         return "/api/posts/all";
     }
@@ -21,7 +25,11 @@ const Posts = ({ feedType }) => {
 
   const POST_ENDPOINT = getPostEndPoint();
 
-  const { data: posts, refetch, isRefetching } = useQuery({
+  const {
+    data: posts,
+    refetch,
+    isRefetching,
+  } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
       try {
@@ -29,21 +37,21 @@ const Posts = ({ feedType }) => {
         const data = await res.json();
 
         // console.log(data)
-        
+
         if (!res.ok) {
           throw new Error(data.error || "something went wrong");
         }
 
-        return data
+        return data;
       } catch (error) {
         throw new Error(error || "Something went wrong");
       }
     },
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     refetch();
-  }, [feedType, refetch])
+  }, [feedType, refetch, username]);
 
   return (
     <>

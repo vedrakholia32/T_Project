@@ -13,9 +13,7 @@ const RightPanel = () => {
 		queryFn: async () => {
 			try {
 				const res = await fetch("/api/user/suggested");
-        console.log(res)
 				const data = await res.json();
-        console.log(data)
 				if (!res.ok) {
 					throw new Error(data.message || "Something went wrong!");
 				}
