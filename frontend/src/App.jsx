@@ -44,7 +44,7 @@ function App() {
 
   // console.log("authUser is here:", data)
   return (
-    <div className="flex max-w-6xl mx-auto">
+    <div className=" flex max-w-6xl mx-auto">
       {/* {Common components bc it's not wrapped with Routes} */}
       {authUser && <Sidebar />}
       <Routes>

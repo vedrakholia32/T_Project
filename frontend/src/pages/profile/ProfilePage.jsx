@@ -105,7 +105,7 @@ const ProfilePage = () => {
 
   return (
     <>
-      <div className="flex-[4_4_0]  border-r border-gray-700 min-h-screen ">
+      <div className="bg-gray-900 flex-[4_4_0]  border-r border-gray-700 min-h-screen ">
         {/* HEADER */}
         {isLoading || (isRefetching && <ProfileHeaderSkeleton />)}
         {!isLoading && !isRefetching && !user && (
@@ -116,10 +116,10 @@ const ProfilePage = () => {
             <>
               <div className="flex gap-10 px-4 py-2 items-center">
                 <Link to="/">
-                  <FaArrowLeft className="w-4 h-4" />
+                  <FaArrowLeft className="text-white w-4 h-4" />
                 </Link>
                 <div className="flex flex-col">
-                  <p className="font-bold text-lg">{user?.fullName}</p>
+                  <p className="font-bold text-white text-lg">{user?.fullName}</p>
                   <span className="text-sm text-slate-500">
                     {POSTS?.length} posts
                   </span>
@@ -155,8 +155,9 @@ const ProfilePage = () => {
                 />
                 {/* USER AVATAR */}
                 <div className="avatar absolute -bottom-16 left-4">
-                  <div className="w-32 rounded-full relative group/avatar">
+                  <div className="rounded-full relative group/avatar">
                     <img
+                        className="w-40 h-40 rounded-full"
                       src={
                         profileImg ||
                         user?.profileImg ||
@@ -174,11 +175,11 @@ const ProfilePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-end px-4 mt-5">
+              <div className="text-white flex justify-end px-4 mt-5">
                 {isMyProfile && <EditProfileModal />}
                 {!isMyProfile && (
                   <button
-                    className="btn btn-outline rounded-full btn-sm"
+                    className=" rounded-full btn-sm"
                     onClick={() => follow(user?._id)}
                   >
                     {isPending && "Loading..."}
@@ -198,11 +199,11 @@ const ProfilePage = () => {
 
               <div className="flex flex-col gap-4 mt-14 px-4">
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg">{user?.fullName}</span>
+                  <span className="text-white font-bold text-lg">{user?.fullName}</span>
                   <span className="text-sm text-slate-500">
                     @{user?.username}
                   </span>
-                  <span className="text-sm my-1">{user?.bio}</span>
+                  <span className="text-slate-400 text-sm my-1">{user?.bio}</span>
                 </div>
 
                 <div className="flex gap-2 flex-wrap">
@@ -230,13 +231,13 @@ const ProfilePage = () => {
                 </div>
                 <div className="flex gap-2">
                   <div className="flex gap-1 items-center">
-                    <span className="font-bold text-xs">
+                    <span className=" text-white font-bold text-xs">
                       {user?.following.length}
                     </span>
                     <span className="text-slate-500 text-xs">Following</span>
                   </div>
                   <div className="flex gap-1 items-center">
-                    <span className="font-bold text-xs">
+                    <span className=" text-white font-bold text-xs">
                       {user?.followers.length}
                     </span>
                     <span className="text-slate-500 text-xs">Followers</span>
@@ -245,7 +246,7 @@ const ProfilePage = () => {
               </div>
               <div className="flex w-full border-b border-gray-700 mt-4">
                 <div
-                  className="flex justify-center flex-1 p-3 hover:bg-secondary transition duration-300 relative cursor-pointer"
+                  className=" text-slate-300 flex justify-center flex-1 p-3 hover:bg-secondary transition duration-300 relative cursor-pointer"
                   onClick={() => setFeedType("posts")}
                 >
                   Posts
@@ -254,7 +255,7 @@ const ProfilePage = () => {
                   )}
                 </div>
                 <div
-                  className="flex justify-center flex-1 p-3 text-slate-500 hover:bg-secondary transition duration-300 relative cursor-pointer"
+                  className=" flex justify-center flex-1 p-3 text-slate-300 hover:bg-secondary transition duration-300 relative cursor-pointer"
                   onClick={() => setFeedType("likes")}
                 >
                   Likes

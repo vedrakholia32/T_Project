@@ -44,8 +44,8 @@ const EditProfileModal = ({ authUser }) => {
       >
         Edit profile
       </button>
-      <dialog id="edit_profile_modal" className="modal">
-        <div className="modal-box border rounded-md border-gray-700 shadow-md">
+      <dialog id="edit_profile_modal" className=" bg-slate-800 text-white modal">
+        <div className=" p-4 modal-box border rounded-md border-none shadow-md">
           <h3 className="font-bold text-lg my-3">Update Profile</h3>
           <form
             className="flex flex-col gap-4"
@@ -58,7 +58,7 @@ const EditProfileModal = ({ authUser }) => {
               <input
                 type="text"
                 placeholder="Full Name"
-                className="flex-1 input border border-gray-700 rounded p-2 input-md"
+                className="flex-1 input border bg-slate-700 border-gray-700 rounded p-2 input-md"
                 value={formData.fullName}
                 name="fullName"
                 onChange={handleInputChange}
@@ -66,7 +66,7 @@ const EditProfileModal = ({ authUser }) => {
               <input
                 type="text"
                 placeholder="Username"
-                className="flex-1 input border border-gray-700 rounded p-2 input-md"
+                className="flex-1 input border bg-slate-700 border-gray-700 rounded p-2 input-md"
                 value={formData.username}
                 name="username"
                 onChange={handleInputChange}
@@ -76,14 +76,14 @@ const EditProfileModal = ({ authUser }) => {
               <input
                 type="email"
                 placeholder="Email"
-                className="flex-1 input border border-gray-700 rounded p-2 input-md"
+                className="flex-1 input border bg-slate-700 border-gray-700 rounded p-2 input-md"
                 value={formData.email}
                 name="email"
                 onChange={handleInputChange}
               />
               <textarea
                 placeholder="Bio"
-                className="flex-1 input border border-gray-700 rounded p-2 input-md"
+                className="flex-1 input border bg-slate-700 border-gray-700 rounded p-2 input-md"
                 value={formData.bio}
                 name="bio"
                 onChange={handleInputChange}
@@ -93,7 +93,7 @@ const EditProfileModal = ({ authUser }) => {
               <input
                 type="password"
                 placeholder="Current Password"
-                className="flex-1 input border border-gray-700 rounded p-2 input-md"
+                className="flex-1 input border bg-slate-700 border-gray-700 rounded p-2 input-md"
                 value={formData.currentPassword}
                 name="currentPassword"
                 onChange={handleInputChange}
@@ -101,7 +101,7 @@ const EditProfileModal = ({ authUser }) => {
               <input
                 type="password"
                 placeholder="New Password"
-                className="flex-1 input border border-gray-700 rounded p-2 input-md"
+                className="flex-1 input border bg-slate-700 border-gray-700 rounded p-2 input-md"
                 value={formData.newPassword}
                 name="newPassword"
                 onChange={handleInputChange}
@@ -110,7 +110,7 @@ const EditProfileModal = ({ authUser }) => {
             <input
               type="text"
               placeholder="Link"
-              className="flex-1 input border border-gray-700 rounded p-2 input-md"
+              className="flex-1 input border bg-slate-700 border-gray-700 rounded p-2 input-md"
               value={formData.link}
               name="link"
               onChange={handleInputChange}
@@ -120,8 +120,8 @@ const EditProfileModal = ({ authUser }) => {
             </button>
           </form>
         </div>
-        <form method="dialog" className="modal-backdrop">
-          <button className="outline-none">close</button>
+        <form method="dialog" className="p-3 modal-backdrop">
+          <button className="  outline-none">close</button>
         </form>
       </dialog>
     </>
